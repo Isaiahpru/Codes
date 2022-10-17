@@ -1,0 +1,56 @@
+import random
+
+player_wins = 0
+computer_wins = 0
+tie_games = 0
+print("This is Rock Paper Scissors! Type Your Choice in The Box Below and See if You Win. Type 'quit' at Any Time to Stop.")
+options = ["rock", "paper", "scissors"]
+while True:
+  print("Rock, Paper, Scissors?")
+  player_input = input().lower()
+  if player_input == "quit":
+    break
+  elif player_input not in options:
+    continue
+
+  random_number = random.randint(0, 2)
+  # 0 = Rock
+  # 1 = Paper
+  # 2 = Scissors
+  if random_number == 0:
+    computer_input = "rock"
+  if random_number == 1:
+    computer_input = "paper"
+  if random_number == 2:
+    computer_input = "scissors"
+
+  print(" ")
+  print("I Pick", computer_input)
+
+  if computer_input == "rock" and player_input == "paper"or computer_input == "paper" and player_input == "scissors"or computer_input == "scissors" and  player_input == "rock":
+     print(" ")
+     print("************")
+     print("* You win! *")
+     print("************")
+     player_wins +=1
+
+  elif computer_input == player_input:
+      print(" ")
+      print("**************")
+      print("* It's a tie *")
+      print("**************")
+      tie_games += 1
+  else:
+      print(" ")
+      print("**************")
+      print("* You lose *")
+      print("**************")
+      computer_wins += 1
+  print(" ")
+  print("You won ",player_wins ,"Times")
+  print("I've won ", computer_wins ,"times")
+  print("And theres been ", tie_games ,"Ties")
+  print(" ")
+  continue
+
+print("thanks for playing")
